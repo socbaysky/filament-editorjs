@@ -31,6 +31,7 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
          */
         $package->name(static::$name)
             ->hasCommands($this->getCommands())
+            ->hasRoutes($this->getRoutes())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
@@ -39,9 +40,7 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
                     ->askToStarRepoOnGitHub('athphane/filament-editorjs');
             });
 
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+        if (file_exists($package->basePath('/../config/filament-editorjs.php'))) {
             $package->hasConfigFile();
         }
 
@@ -129,7 +128,9 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
      */
     protected function getRoutes(): array
     {
-        return [];
+        return [
+            'filament-editorjs'
+        ];
     }
 
     /**
