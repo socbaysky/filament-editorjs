@@ -24,6 +24,7 @@ class EditorjsTextField extends Field
         // Setup Default Tools from Config
         $instance = $instance->setDefaultTools();
 
+        // Setup Default Upload URL
         $instance = $instance->setDefaultUploadUrl();
 
         return $instance;

@@ -2,6 +2,7 @@
 
 namespace Athphane\FilamentEditorjs\Http\Controllers;
 
+use Athphane\FilamentEditorjs\Traits\ModelHasEditorJsComponent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
@@ -14,7 +15,7 @@ class FilamentEditorJsController
     {
         $class = Relation::getMorphedModel($model_class);
 
-        /** @var Model|InteractsWithMedia $record */
+        /** @var Model|InteractsWithMedia|ModelHasEditorJsComponent $record */
         $record = $class::find($model_id);
 
         if (! $record) {
@@ -27,17 +28,10 @@ class FilamentEditorJsController
         /** @var Media $image */
         $image = $record->editorJsSaveImageFromRequest($request);
 
-        if (! $image) {
-            return response()->json([
-                'success' => 0,
-                'message' => 'Image save failed.',
-            ]);
-        }
-
         return response()->json([
             'success' => 1,
-            'file' => [
-                'url' => $image->getUrl('preview'),
+            'file'    => [
+                'url'      => $image->getUrl('preview'),
                 'media_id' => $image->id,
             ],
         ]);

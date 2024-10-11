@@ -17,7 +17,7 @@ trait HasImageUploadEndpoints
         return $this;
     }
 
-    public function getFileAttachmentUrlUsing(string | Closure | null $callback): static
+    public function getFileAttachmentUrlUsing(string|Closure|null $callback): static
     {
         $this->getFileAttachmentUrlUsing = $callback;
 
