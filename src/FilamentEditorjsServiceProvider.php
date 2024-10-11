@@ -129,7 +129,7 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
     protected function getRoutes(): array
     {
         return [
-            'filament-editorjs'
+            'filament-editorjs',
         ];
     }
 
