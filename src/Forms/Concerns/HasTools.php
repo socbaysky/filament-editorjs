@@ -40,7 +40,6 @@ trait HasTools
     /**
      * Set the tools for the editorjs field.
      *
-     * @param  string  $tool_profile
      * @return $this
      */
     public function tools(string $tool_profile): static
@@ -52,8 +51,6 @@ trait HasTools
 
     /**
      * Get the tools for the editorjs field.
-     *
-     * @return array
      */
     public function getTools(): array
     {

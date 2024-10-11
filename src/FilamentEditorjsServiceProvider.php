@@ -77,7 +77,7 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/filament-editorjs/{$file->getFilename()}"),
                 ], 'filament-editorjs-stubs');
@@ -100,8 +100,8 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-editorjs', __DIR__ . '/../resources/dist/components/filament-editorjs.js'),
-            Css::make('filament-editorjs-styles', __DIR__ . '/../resources/dist/filament-editorjs.css'),
-            Js::make('filament-editorjs-scripts', __DIR__ . '/../resources/dist/filament-editorjs.js'),
+            Css::make('filament-editorjs-styles', __DIR__.'/../resources/dist/filament-editorjs.css'),
+            Js::make('filament-editorjs-scripts', __DIR__.'/../resources/dist/filament-editorjs.js'),
         ];
     }
 

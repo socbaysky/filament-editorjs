@@ -26,7 +26,6 @@ trait HasImageUploadEndpoints
     /**
      * Set a custom closure to get the upload url for the image uploads.
      *
-     * @param  string|Closure|null  $callback
      * @return $this
      */
     public function getFileAttachmentUrlUsing(string|Closure|null $callback): static
@@ -38,8 +37,6 @@ trait HasImageUploadEndpoints
 
     /**
      * Get the image upload url for the editorjs field.
-     *
-     * @return string
      */
     public function getFileAttachmentUrl(): string
     {

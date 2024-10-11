@@ -9,8 +9,6 @@ trait ModelHasEditorJsComponent
 {
     /**
      * Do things when the model is booted
-     *
-     * @return void
      */
     public static function bootModelHasEditorJsComponent(): void
     {
@@ -22,8 +20,6 @@ trait ModelHasEditorJsComponent
 
     /**
      * The name of the media collection for the editorjs media collection
-     *
-     * @return string
      */
     public function editorjsMediaCollectionName(): string
     {
@@ -32,8 +28,6 @@ trait ModelHasEditorJsComponent
 
     /**
      * The name of the field that contains the content for the editorjs field
-     *
-     * @return string
      */
     public function editorJsContentFieldName(): string
     {
@@ -43,8 +37,6 @@ trait ModelHasEditorJsComponent
     /**
      * Method called from the controller to save the image from the request
      *
-     * @param $request
-     * @return Media
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
      * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
      */
@@ -60,13 +52,10 @@ trait ModelHasEditorJsComponent
      *
      * This function allows for you to pass in an array of mime types to accept.
      * By default the package will use it's own config for the image mime types.
-     *
-     * @param  array|null  $mime_types
-     * @return void
      */
     public function registerEditorJsMediaCollections(?array $mime_types = null): void
     {
-        if (!$mime_types) {
+        if (! $mime_types) {
             $mime_types = config('filament-editorjs.image_mime_types');
         }
 
@@ -81,9 +70,6 @@ trait ModelHasEditorJsComponent
      *
      * This function allows for the Media object to be passed in just like the addMediaConversion
      * from Spatie
-     *
-     * @param  Media|null  $media
-     * @return void
      */
     public function registerEditorJsMediaConversions(?Media $media = null): void
     {
@@ -95,8 +81,6 @@ trait ModelHasEditorJsComponent
 
     /**
      * Method to find and delete all the media in the collection that is not currently used in the content
-     *
-     * @return void
      */
     public function findAndDeleteRemovedEditorJsMedia(): void
     {
