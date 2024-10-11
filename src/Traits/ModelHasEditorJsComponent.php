@@ -2,7 +2,6 @@
 
 namespace Athphane\FilamentEditorjs\Traits;
 
-use App\Support\Media\AllowedMimeTypes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Spatie\Image\Enums\Fit;
 
@@ -21,9 +20,9 @@ trait ModelHasEditorJsComponent
         });
     }
 
-    public function registerEditorJsMediaCollection(array|null $mime_types = null): void
+    public function registerEditorJsMediaCollection(?array $mime_types = null): void
     {
-        if (!$mime_types) {
+        if (! $mime_types) {
             $mime_types = config('filament-editorjs.image_mime_types');
         }
 

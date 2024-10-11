@@ -19,6 +19,4 @@ trait HasHeight
     {
         return $this->evaluate($this->minHeight);
     }
-
-
 }
