@@ -2,9 +2,7 @@
 
 namespace Athphane\FilamentEditorjs;
 
-use Athphane\FilamentEditorjs\Commands\FilamentEditorjsCommand;
 use Athphane\FilamentEditorjs\Testing\TestsFilamentEditorjs;
-use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
@@ -30,22 +28,15 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
             ->hasRoutes($this->getRoutes())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
                     ->askToStarRepoOnGitHub('athphane/filament-editorjs');
             });
 
         if (file_exists($package->basePath('/../config/filament-editorjs.php'))) {
             $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
         }
 
         if (file_exists($package->basePath('/../resources/lang'))) {
@@ -106,16 +97,6 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
     }
 
     /**
-     * @return array<class-string>
-     */
-    protected function getCommands(): array
-    {
-        return [
-            FilamentEditorjsCommand::class,
-        ];
-    }
-
-    /**
      * @return array<string>
      */
     protected function getIcons(): array
@@ -139,15 +120,5 @@ class FilamentEditorjsServiceProvider extends PackageServiceProvider
     protected function getScriptData(): array
     {
         return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getMigrations(): array
-    {
-        return [
-            'create_filament-editorjs_table',
-        ];
     }
 }

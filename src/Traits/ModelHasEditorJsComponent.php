@@ -3,6 +3,8 @@
 namespace Athphane\FilamentEditorjs\Traits;
 
 use Spatie\Image\Enums\Fit;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 trait ModelHasEditorJsComponent
@@ -37,8 +39,8 @@ trait ModelHasEditorJsComponent
     /**
      * Method called from the controller to save the image from the request
      *
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist
-     * @throws \Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
      */
     public function editorJsSaveImageFromRequest($request): Media
     {
@@ -51,7 +53,7 @@ trait ModelHasEditorJsComponent
      * Use this in your model's own registerMediaCollections method.
      *
      * This function allows for you to pass in an array of mime types to accept.
-     * By default the package will use it's own config for the image mime types.
+     * By default, the package will use its own config for the image mime types.
      */
     public function registerEditorJsMediaCollections(?array $mime_types = null): void
     {

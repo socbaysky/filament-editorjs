@@ -6,17 +6,23 @@ use Athphane\FilamentEditorjs\Traits\ModelHasEditorJsComponent;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileDoesNotExist;
+use Spatie\MediaLibrary\MediaCollections\Exceptions\FileIsTooBig;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class FilamentEditorJsController
 {
+    /**
+     * @throws FileDoesNotExist
+     * @throws FileIsTooBig
+     */
     public function uploadImage(Request $request, $model_class, $model_id)
     {
+        /** @var Model $class */
         $class = Relation::getMorphedModel($model_class);
 
-        /** @var Model|InteractsWithMedia|ModelHasEditorJsComponent $record */
-        $record = $class::find($model_id);
+        /** @var Model|ModelHasEditorJsComponent $record */
+        $record = $class::query()->find($model_id);
 
         if (! $record) {
             return response()->json([
