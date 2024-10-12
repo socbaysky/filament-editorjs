@@ -48,8 +48,12 @@ trait HasImageUploadEndpoints
     /**
      * Get the image upload url for the editorjs field.
      */
-    public function getFileAttachmentUrl(): string
+    public function getFileAttachmentUrl(): ?string
     {
-        return $this->evaluate($this->getFileAttachmentUrlUsing);
+        try {
+            return $this->evaluate($this->getFileAttachmentUrlUsing);
+        } catch (\Throwable $e) {
+            return null;
+        }
     }
 }

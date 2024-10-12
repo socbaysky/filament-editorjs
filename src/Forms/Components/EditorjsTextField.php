@@ -22,10 +22,8 @@ class EditorjsTextField extends Field
         $instance = parent::make($name);
 
         // Setup Default Tools from Config
-        $instance = $instance->setDefaultTools();
-
-        // Setup Default Upload URL
-        $instance = $instance->setDefaultUploadUrl();
+        $instance = $instance->setDefaultTools()
+            ->setDefaultUploadUrl();
 
         return $instance;
     }
