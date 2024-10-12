@@ -5,7 +5,7 @@
 /* @tailwind utilities; */
 
 .editorjs-wrapper {
-    @apply border rounded-lg relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-300 mx-auto py-8 px-16 dark:bg-white/5 dark:border-gray-600;
+    @apply border rounded-xl relative bg-white shadow-sm prose prose-sm dark:prose-invert border-gray-200 mx-auto py-8 px-16 dark:bg-gray-900 dark:border-gray-600;
     max-width: unset;
 }
 
