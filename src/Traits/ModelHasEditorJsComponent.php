@@ -55,7 +55,7 @@ trait ModelHasEditorJsComponent
      * This function allows for you to pass in an array of mime types to accept.
      * By default, the package will use its own config for the image mime types.
      */
-    public function registerEditorJsMediaCollections(?array $mime_types = null): void
+    public function registerEditorJsMediaCollections(?array $mime_types = null, bool $generate_responsive_images = true): void
     {
         if (! $mime_types) {
             $mime_types = config('filament-editorjs.image_mime_types');
@@ -63,7 +63,7 @@ trait ModelHasEditorJsComponent
 
         $this->addMediaCollection($this->editorjsMediaCollectionName())
             ->acceptsMimeTypes($mime_types)
-            ->withResponsiveImages();
+            ->withResponsiveImagesIf($generate_responsive_images);
     }
 
     /**
