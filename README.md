@@ -7,6 +7,8 @@
 
 An EditorJS field for Filament, with support for image uploads using Spatie's Media Library package.
 
+![img.png](assets/img.png)
+
 ## Installation
 
 You can install the package via composer:
