@@ -10,7 +10,7 @@
 }
 
 .codex-editor__redactor {
-    @apply px-3 py-2;
+    @apply px-3 py-4 !important;
 }
 
 .cdx-search-field {
@@ -123,5 +123,5 @@ Actions alignment
 */
 .ce-toolbar__actions {
     right: inherit;
-    @apply pr-0;
+    @apply pr-0 pl-[6px] pt-[1px] !important;
 }
