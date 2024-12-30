@@ -26,7 +26,7 @@ trait HasImageUploadEndpoints
 
             return route("filament.{$current_panel->getId()}.editorjs.upload", [
                 $record->getMorphClass(),
-                $record->id,
+                $record->getKey(),
             ]);
         };
 
