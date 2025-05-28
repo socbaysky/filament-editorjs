@@ -1,21 +1,21 @@
 {
-    "name": "athphane/filament-editorjs",
+    "name": "socbaysky/filament-editorjs",
     "description": "This is my package filament-editorjs",
     "keywords": [
-        "athphane",
+        "socbaysky",
         "laravel",
         "filament-editorjs"
     ],
-    "homepage": "https://github.com/athphane/filament-editorjs",
+    "homepage": "https://github.com/socbaysky/filament-editorjs",
     "support": {
-        "issues": "https://github.com/athphane/filament-editorjs/issues",
-        "source": "https://github.com/athphane/filament-editorjs"
+        "issues": "https://github.com/socbaysky/filament-editorjs/issues",
+        "source": "https://github.com/socbaysky/filament-editorjs"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": "athphane",
-            "email": "athphane@gmail.com",
+            "name": "socbaysky",
+            "email": "socbaysky@gmail.com",
             "role": "Developer"
         }
     ],
